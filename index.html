@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body class="bg-dark">
+    <header>
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand text-white" href="#">Emp</a>
+              <button
+                class="navbar-toggler bg-white"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto d-flex mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" href="#"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Add Employee</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchBox"
+                    
+                  />
+                  <button class="btn btn-outline-success" type="button" onclick="searchEmployee()">
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="add-employee mt-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <h1 class="text-white text-center my-4">Add Employee Data</h1>
+            <div class="col-12 col-md-5">
+              <form
+                action=""
+                class="mb-3 py-5 px-4 bg-light border border-danger rounded-5"
+                id="form"
+              >
+                <label for="ename" class="form-label">Employee Name:</label>
+                <input type="text" class="form-control mb-3" id="e_name" />
+                <label for="salary" class="form-label">Salary:</label>
+                <input type="number" class="form-control mb-3" id="e_salary" />
+                <label for="post" class="form-label">Post:</label>
+                <select name="post" id="post" class="form-control mb-3">
+                  <option value="">Select Post</option>
+                  <option value="Software Engineer">Software Engineer</option>
+                  <option value="HR">HR</option>
+                  <option value="Manager">Manager</option>
+                  <option value="Accountant">Accountant</option>
+                  <option value="Intern">Intern</option>
+                </select>
+                <label for="manager" class="form-label">Manager:</label>
+                <select name="manager" id="manager" class="form-control">
+                  <option value="">Select Manager</option>
+                  <option value="John Doe">John Doe</option>
+                  <option value="Jane Smith">Jane Smith</option>
+                  <option value="Michael Brown">Michael Brown</option>
+                  <option value="Emily Davis">Emily Davis</option>
+                </select>
+                <button class="btn btn-success mt-3" id="addBtn">
+                  Add Employee
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Employee</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <input
+                type="text"
+                id="editName"
+                class="form-control mb-2"
+                placeholder="Name"
+              />
+              <input
+                type="tel"
+                id="editSalary"
+                class="form-control"
+                placeholder="Email"
+              />
+              <select name="post" id="editPost" class="form-control mb-3">
+                <option value="">Select Post</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="HR">HR</option>
+                <option value="Manager">Manager</option>
+                <option value="Accountant">Accountant</option>
+                <option value="Intern">Intern</option>
+              </select>
+               <select name="manager" id="editManager" class="form-control">
+                  <option value="">Select Manager</option>
+                  <option value="John Doe">John Doe</option>
+                  <option value="Jane Smith">Jane Smith</option>
+                  <option value="Michael Brown">Michael Brown</option>
+                  <option value="Emily Davis">Emily Davis</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" onclick="updateEmployee()">
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="show-employee" style="margin-top: 150px;">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-7">
+              <caption class="caption-top">
+                <h2 class="text-white text-center mb-4">Employee data</h2>
+              </caption>
+              <table class="table table-secondary table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Employee Name</th>
+                    <th scope="col">Employee Salary</th>
+                    <th scope="col">Employee Post</th>
+                    <th scope="col">Manager</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
