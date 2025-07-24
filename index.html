@@ -17,6 +17,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
   </head>
 
   <body class="bg-dark">
@@ -76,13 +77,13 @@
             <div class="col-12 col-md-5">
               <form
                 action=""
-                class="mb-3 py-5 px-4 bg-light border border-danger rounded-5"
+                class="mb-3 py-5 px-4 rounded-5 box"
                 id="form"
               >
                 <label for="ename" class="form-label">Employee Name:</label>
-                <input type="text" class="form-control mb-3" id="e_name" />
+                <input type="text" class="form-control mb-3" id="e_name" placeholder="Enter Employee Name "/>
                 <label for="salary" class="form-label">Salary:</label>
-                <input type="number" class="form-control mb-3" id="e_salary" />
+                <input type="number" class="form-control mb-3" id="e_salary" placeholder="Enter Employee Salary"/>
                 <label for="post" class="form-label">Post:</label>
                 <select name="post" id="post" class="form-control mb-3">
                   <option value="">Select Post</option>
@@ -100,7 +101,7 @@
                   <option value="Michael Brown">Michael Brown</option>
                   <option value="Emily Davis">Emily Davis</option>
                 </select>
-                <button class="btn btn-success mt-3" id="addBtn">
+                <button class="btn btn-success mt-4" id="addBtn">
                   Add Employee
                 </button>
               </form>
@@ -110,16 +111,16 @@
       </section>
       <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
+          <div class="modal-content box">
             <div class="modal-header">
-              <h5 class="modal-title">Edit Employee</h5>
+              <h5 class="modal-title text-white">Edit Employee</h5>
               <button
                 type="button"
                 class="btn-close"
                 data-bs-dismiss="modal"
               ></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ">
               <input
                 type="text"
                 id="editName"
@@ -129,7 +130,7 @@
               <input
                 type="tel"
                 id="editSalary"
-                class="form-control"
+                class="form-control mb-2"
                 placeholder="Email"
               />
               <select name="post" id="editPost" class="form-control mb-3">
@@ -140,7 +141,7 @@
                 <option value="Accountant">Accountant</option>
                 <option value="Intern">Intern</option>
               </select>
-               <select name="manager" id="editManager" class="form-control">
+               <select name="manager" id="editManager" class="form-control mb-3">
                   <option value="">Select Manager</option>
                   <option value="John Doe">John Doe</option>
                   <option value="Jane Smith">Jane Smith</option>
@@ -163,8 +164,8 @@
               <caption class="caption-top">
                 <h2 class="text-white text-center mb-4">Employee data</h2>
               </caption>
-              <table class="table table-secondary table-striped table-bordered">
-                <thead>
+              <table class="table table-bordered">
+                <thead class="text-center">
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Employee Name</th>

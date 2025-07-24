@@ -30,7 +30,7 @@ function display_emp_data() {
         <td>${emp.emp_salary}</td>
         <td>${emp.post}</td>
         <td>${emp.manager}</td>
-        <td> <button class="btn btn-info btn-sm delete-btn" onclick="open_edit_modal(${index})">Edit</button>
+        <td> <button class="btn btn-info btn-sm delete-btn bg-1" onclick="open_edit_modal(${index})">Edit</button>
         <button class="btn btn-danger btn-sm delete-btn" onclick="delete_data(${index})">Delete</button>
         </td>
    </tr>
