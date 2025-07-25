@@ -4,7 +4,7 @@ let emp_salary = document.getElementById("e_salary");
 let post = document.getElementById("post");
 let manager = document.getElementById("manager");
 let form = document.getElementById("form");
-let emp_data = [];
+let emp_data =[];
 let editIndex = null;
 submit_btn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -15,6 +15,7 @@ submit_btn.addEventListener("click", (e) => {
     manager: manager.value,
   };
   emp_data.push(emp);
+  localStorage.setItem('employees' , JSON.stringify(emp_data));
   display_emp_data();
   form.reset();
   alert("Employee added successfully!");
